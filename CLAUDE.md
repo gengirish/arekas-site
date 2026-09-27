@@ -4,7 +4,7 @@ This file gives Claude Code (claude.ai/code) guidance for working in this reposi
 
 ## What this is
 
-A static marketing site for **Arekas Arena** (arekas.in), a 2.5-acre outdoor event venue in Rajanukunte, North Bangalore, run by KR Endeavours. It also covers **Bamboo Arcadia**, a sister property. There is no build step, framework, package manager or tests. Every page is a hand-written, self-contained `.html` file at the repo root.
+A static marketing site for **Arekas Arena** (arekas.in), a 3-acre outdoor event venue in Rajanukunte, North Bangalore, run by KR Endeavours. It also covers **Bamboo Arcadia**, a sister property. There is no build step, framework, package manager or tests. Every page is a hand-written, self-contained `.html` file at the repo root.
 
 ## Running locally
 
