@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preload" as="image" href="bb1.webp" fetchpriority="high">
 <title>Arekas Bamboo Arcadia | Bamboo Cottages &amp; Pool, Bangalore</title>
 <meta name="description" content="Arekas Bamboo Arcadia is a farm stay near Bangalore in Rajanukunte, with handcrafted bamboo cottages, a swimming pool and open-air dining amid arecanut palms.">
 <meta name="keywords" content="farm stay near Bangalore, bamboo cottage Bangalore, Bamboo Arcadia Rajanukunte, weekend farm stay North Bangalore">
@@ -85,9 +89,9 @@
   ]
 }
 </script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/bootstrap.subset.css">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 
 <style>
 /* ══════════════════════════════════════════
@@ -433,7 +437,7 @@ footer{background:var(--g-dark-2);padding:68px 5% 28px;}
 }
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18387504806"></script>
+<script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-18387504806';document.head.appendChild(s);});</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -743,9 +747,9 @@ footer{background:var(--g-dark-2);padding:68px 5% 28px;}
         <div><div class="ch-lbl">Call Us</div><div class="ch-val">+91 89511 26633</div></div>
         <i class="bi bi-arrow-right" aria-hidden="true" style="margin-left:auto;color:rgba(255,255,255,.18)"></i>
       </a>
-      <a class="ch-card" href="/cdn-cgi/l/email-protection#1270737f707d7d707e7b61617473607f6166736b52757f737b7e3c717d7f">
+      <a class="ch-card" href="mailto:bambooblissfarmstay@gmail.com">
         <div class="ch-ico" style="background:#EA4335;color:#fff;"><i class="bi bi-envelope" aria-hidden="true"></i></div>
-        <div><div class="ch-lbl">Email</div><div class="ch-val"><span class="__cf_email__" data-cfemail="2c4e4d414e43434e40455f5f4a4d5e415f584d556c4b414d4540024f4341">bambooblissfarmstay@gmail.com</span></div></div>
+        <div><div class="ch-lbl">Email</div><div class="ch-val">bambooblissfarmstay@gmail.com</div></div>
         <i class="bi bi-arrow-right" aria-hidden="true" style="margin-left:auto;color:rgba(255,255,255,.18)"></i>
       </a>
       <a class="ch-card" href="https://www.facebook.com/bamboo.bliss.farmstay" target="_blank">
@@ -971,7 +975,7 @@ footer{background:var(--g-dark-2);padding:68px 5% 28px;}
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" defer></script>
 <script>
 /* Cursor removed */
 
@@ -1004,4 +1008,7 @@ function pickAcc(t){document.getElementById('opt-cottage').classList.toggle('act
 const today=new Date(),tom=new Date();tom.setDate(today.getDate()+1);
 const fmt=d=>d.toISOString().split('T')[0];
 const ci=document.getElementById('checkin'),co=document.getElementById('checkout');
-if(ci){ci.value=fmt(today);ci.min=fmt(today);}if(co){co.value=fmt(t
+if(ci){ci.value=fmt(today);ci.min=fmt(today);}if(co){co.value=fmt(tom);co.min=fmt(tom);}
+</script>
+</body>
+</html>
