@@ -95,6 +95,161 @@
       "source": "/wedding-venue-bangalore",
       "destination": "/wedding-venue-bangalore.html",
       "permanent": true
+    },
+    {
+      "source": "/aa2.webp",
+      "destination": "/images/arena-stone-path.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aa3.webp",
+      "destination": "/images/arena-lawn-bamboo-fence.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aa4.webp",
+      "destination": "/images/arena-open-lawn.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bb1.webp",
+      "destination": "/images/bamboo-grove-lounge.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bb2.webp",
+      "destination": "/images/wedding-reception-night.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bb3.webp",
+      "destination": "/images/cottage-pool-night.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bb4.webp",
+      "destination": "/images/bamboo-trail.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bc.webp",
+      "destination": "/images/bamboo-cottage.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bd.webp",
+      "destination": "/images/bamboo-dormitory.webp",
+      "permanent": true
+    },
+    {
+      "source": "/bp.webp",
+      "destination": "/images/birthday-party.webp",
+      "permanent": true
+    },
+    {
+      "source": "/ce.webp",
+      "destination": "/images/corporate-event.webp",
+      "permanent": true
+    },
+    {
+      "source": "/nw.webp",
+      "destination": "/images/nature-wedding.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb1.webp",
+      "destination": "/images/hero-wedding-mandap.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb1-800.webp",
+      "destination": "/images/hero-wedding-mandap-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb2.webp",
+      "destination": "/images/hero-garden-dining.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb2-800.webp",
+      "destination": "/images/hero-garden-dining-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb3.webp",
+      "destination": "/images/hero-night-dinner.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb3-800.webp",
+      "destination": "/images/hero-night-dinner-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb4.webp",
+      "destination": "/images/hero-team-building.webp",
+      "permanent": true
+    },
+    {
+      "source": "/emb4-800.webp",
+      "destination": "/images/hero-team-building-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/group%2014.webp",
+      "destination": "/images/logo-arekas-arena.webp",
+      "permanent": true
+    },
+    {
+      "source": "/group%2017.webp",
+      "destination": "/images/logo-bamboo-cottage.webp",
+      "permanent": true
+    },
+    {
+      "source": "/group-11.webp",
+      "destination": "/images/logo-arekas.webp",
+      "permanent": true
+    },
+    {
+      "source": "/enjoying-street-food-fest.webp",
+      "destination": "/images/street-food-fest.webp",
+      "permanent": true
+    },
+    {
+      "source": "/luxury-wedding-concept-flowers-high-view.webp",
+      "destination": "/images/wedding-flowers-aerial.webp",
+      "permanent": true
+    },
+    {
+      "source": "/navratri-decoration-with-candles.webp",
+      "destination": "/images/navratri-candles.webp",
+      "permanent": true
+    },
+    {
+      "source": "/og-image.jpg",
+      "destination": "/images/og-image.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/og-bamboo.jpg",
+      "destination": "/images/og-bamboo.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/av1.mp4",
+      "destination": "/videos/venue-walkthrough.mp4",
+      "permanent": true
+    },
+    {
+      "source": "/av2.mp4",
+      "destination": "/videos/property-tour.mp4",
+      "permanent": true
+    },
+    {
+      "source": "/SetupVideo.webm",
+      "destination": "/videos/setup-video.webm",
+      "permanent": true
     }
   ],
   "headers": [

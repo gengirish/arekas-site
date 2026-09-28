@@ -6,7 +6,7 @@
    · Videos and cross-origin requests (analytics, maps) are never touched.
    Bump VERSION whenever PRECACHE changes or to force every client to refresh.
    ========================================================================== */
-var VERSION = 'v3';
+var VERSION = 'v4';
 var SHELL = 'arekas-shell-' + VERSION;
 var PAGES = 'arekas-pages-' + VERSION;
 var ASSETS = 'arekas-assets-' + VERSION;

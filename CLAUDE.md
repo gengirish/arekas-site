@@ -16,7 +16,7 @@ python3 -m http.server 8000   # then open http://localhost:8000
 
 - `*.html` (repo root): one file per page, 18 in all. `index.html` (~160 KB) and `bamboo-arcadia.html` hold page-specific JavaScript and modals. The others follow a shared template.
 - `assets/theme.css` and `assets/theme.js`: the "Forest & Gold" theme. It is a progressive layer that every page loads after its own inline `<style>`. It only adds presentation (section rail, heading ornaments, hero kicker, brand tagline, current-nav highlighting) and must not rewrite copy or remove markup.
-- Media: `.webp` images at the root and in `venue/` (venue photos) and `aap/` (Bamboo Arcadia). Videos are `av*.mp4`, the reels in `rv/`, and `SetupVideo.webm` (~94 MB).
+- Media: `images/` (site-wide photos, hero slides `hero-*` with `-800` mobile variants, logos `logo-*`, share images `og-*`), `venue/` (venue photos) and `aap/` (Bamboo Arcadia). Videos are in `videos/` (`venue-walkthrough.mp4`, `property-tour.mp4`, `setup-video.webm` ~94 MB) plus the reels in `rv/`. Only the favicons and `apple-touch-icon.png` stay at the root. Old root image URLs 301 to their new paths via `vercel.json`, so keep those redirects. Name new files by what they show (e.g. `images/birthday-party.webp`).
 - PWA: `site.webmanifest` (installable, standalone), `sw.js` (service worker at the root so its scope is the whole site) and `offline.html` (fallback page, `noindex`, deliberately left out of the sitemap). `assets/theme.js` registers the worker, so no page needs its own snippet. Pages are network-first and images/CSS/JS are cached as they're viewed. Videos are never cached. Bump `VERSION` in `sw.js` whenever you change `theme.css`, `theme.js` or the precache list, so returning visitors get the new files.
 - SEO and AI discovery files: `sitemap.xml`, `robots.txt` (explicitly allows AI crawlers), `llms.txt` (a short index) and `llms-full.txt` (full facts, policies and FAQs).
 
@@ -26,7 +26,7 @@ Nothing is templated. The nav, footer, floating WhatsApp/call buttons and Google
 
 Each page's `<head>` follows this order:
 1. `<title>`, `description` and `keywords` meta, then a `canonical` link to `https://arekas.in/<file>.html`
-2. Open Graph and Twitter tags (`og:image` is usually `https://arekas.in/group-11.webp`)
+2. Open Graph and Twitter tags (`og:image` is usually `https://arekas.in/images/og-image.jpg`, or `images/og-bamboo.jpg` on Bamboo Arcadia pages)
 3. Geo meta (`13.1149;77.5499`)
 4. JSON-LD blocks: `Organization`, `BreadcrumbList` and a page-specific type (`EventVenue`, `FAQPage`, `Offer`, …)
 
@@ -42,4 +42,4 @@ Several places repeat the same business facts: page copy, the JSON-LD blocks, `l
 ## Gotchas
 
 - Videos (`*.mp4`, `*.webm`) are stored in Git LFS (see `.gitattributes`). Anyone who clones the repo needs `git lfs install`, or they get pointer files instead of videos. Note that GitHub Pages does not serve LFS files, so the videos need a host that does, such as Netlify, Vercel or Cloudflare Pages with LFS enabled.
-- Some filenames contain spaces (`group 14.webp`, `rv/Reel 1.mp4`). Quote them in shell commands and URL-encode them in `src` attributes.
+- Some filenames contain spaces (`rv/Reel 1.mp4`). Quote them in shell commands and URL-encode them in `src` attributes.

@@ -697,7 +697,7 @@ footer{
   /* diya photo under a heavy forest scrim — the glow reads, the type stays legible */
   background:
     linear-gradient(180deg,rgba(6,23,13,.96) 0%,rgba(6,23,13,.91) 32%,rgba(6,23,13,.83) 70%,rgba(6,23,13,.86) 100%),
-    url('../navratri-decoration-with-candles.webp') center 74%/cover no-repeat,
+    url('../images/navratri-candles.webp') center 74%/cover no-repeat,
     linear-gradient(180deg,var(--forest-850),var(--forest-900))!important;
   border-top:1px solid var(--hair-dark)!important;
   padding:86px 5% 30px!important;position:relative;overflow:hidden;
@@ -897,7 +897,7 @@ body:not(.ax-has-toggler) .nav-links{flex-wrap:wrap;justify-content:center;row-g
   footer{
     background:
       linear-gradient(180deg,rgba(6,23,13,.97) 0%,rgba(6,23,13,.95) 45%,rgba(6,23,13,.84) 100%),
-      url('../navratri-decoration-with-candles.webp') center bottom/140% auto no-repeat,
+      url('../images/navratri-candles.webp') center bottom/140% auto no-repeat,
       linear-gradient(180deg,var(--forest-850),var(--forest-900))!important;
   }
 }
