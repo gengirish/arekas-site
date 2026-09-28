@@ -1746,11 +1746,6 @@ function gtag_report_conversion(url) {
 
   <div class="gallery-mosaic reveal">
 
-    <div class="gm-item" data-type="photo" onclick="openLightbox(7)">
-      <img width="960" height="1280" src="aa1.webp" alt="Stone pathway through manicured lawn" loading="lazy" decoding="async">
-      <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen" aria-hidden="true"></i></div></div>
-    </div>
-
     <div class="gm-item" data-type="photo" onclick="openLightbox(8)">
       <img width="960" height="1280" src="aa2.webp" alt="Expansive lawn with bamboo fence" loading="lazy" decoding="async">
       <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen" aria-hidden="true"></i></div></div>
@@ -1763,11 +1758,6 @@ function gtag_report_conversion(url) {
 
     <div class="gm-item" data-type="photo" onclick="openLightbox(10)">
       <img width="960" height="1280" src="aa4.webp" alt="Under the thatched roof pavilion" loading="lazy" decoding="async">
-      <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen" aria-hidden="true"></i></div></div>
-    </div>
-
-    <div class="gm-item" data-type="photo" onclick="openLightbox(11)">
-      <img width="960" height="1280" src="aa5.webp" alt="Cobblestone path flanked by areca palms" loading="lazy" decoding="async">
       <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen" aria-hidden="true"></i></div></div>
     </div>
 
@@ -2600,22 +2590,21 @@ function handleContactEnquiry() {
 }
 
 /* ══ GALLERY JS ══ */
-const gbMedia = [
-  { type:'photo', src:'aa1.webp',  label:'Stone Pathway' },
-  { type:'photo', src:'aa2.webp',  label:'Open Lawns' },
-  { type:'photo', src:'aa3.webp',  label:'Thatched Pavilion' },
-  { type:'video', src:'av1.mp4',       label:'Venue Walkthrough' },
-  { type:'video', src:'av2.mp4',       label:'Property Tour' },
-  { type:'photo', src:'aa4.webp',      label:'Bamboo Pavilion Interior' },
-  { type:'photo', src:'aa5.webp',  label:'Palm-lined Pathway' },
-  { type:'venue', src:'venue/open_stage_1.webp',   label:'Open Stage' },
-  { type:'venue', src:'venue/entrance_1.webp',     label:'Entrance & Pathway' },
-  { type:'venue', src:'venue/dining_1.webp',       label:'Dining Area — 3000 sq ft' },
-  { type:'venue', src:'venue/water_1.webp',        label:'Water Body' },
-  { type:'venue', src:'venue/fountain_1.webp',     label:'Rock Fountain' },
-  { type:'venue', src:'venue/cottage_1.webp',      label:'Bamboo Cottages' },
-  { type:'venue', src:'venue/pool.webp',           label:'Swimming Pool' },
-];
+// Built from the reel strip and mosaic in page order, so tiles can be added
+// or removed without renumbering. Each tile opens its own entry.
+const gbMedia = [];
+document.querySelectorAll('.reel-card, .gm-item').forEach(el => {
+  const vid = el.querySelector('video');
+  const img = el.querySelector('img');
+  const idx = gbMedia.length;
+  if (vid) {
+    const num = el.querySelector('.reel-num');
+    gbMedia.push({ type:'video', src: vid.dataset.src || vid.getAttribute('src'), label: 'Reel ' + (num ? num.textContent : idx + 1) });
+  } else if (img) {
+    gbMedia.push({ type: el.dataset.type || 'photo', src: img.getAttribute('src'), label: img.alt });
+  } else return;
+  el.onclick = () => openLightbox(idx);
+});
 
 let lbActive = false;
 let lbCurrent = 0;
