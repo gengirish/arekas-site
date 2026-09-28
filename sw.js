@@ -6,7 +6,7 @@
    · Videos and cross-origin requests (analytics, maps) are never touched.
    Bump VERSION whenever PRECACHE changes or to force every client to refresh.
    ========================================================================== */
-var VERSION = 'v2';
+var VERSION = 'v3';
 var SHELL = 'arekas-shell-' + VERSION;
 var PAGES = 'arekas-pages-' + VERSION;
 var ASSETS = 'arekas-assets-' + VERSION;
@@ -29,7 +29,12 @@ var PRECACHE = [
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(SHELL)
-      .then(function (cache) { return cache.addAll(PRECACHE); })
+      .then(function (cache) {
+        // Bypass the HTTP cache so a VERSION bump never precaches stale files.
+        return cache.addAll(PRECACHE.map(function (url) {
+          return new Request(url, { cache: 'reload' });
+        }));
+      })
       .then(function () { return self.skipWaiting(); })
   );
 });
@@ -73,9 +78,16 @@ function networkFirstPage(request) {
 }
 
 function staleWhileRevalidate(request) {
+  // /assets/ has a 1-day HTTP cache (vercel.json); revalidate so edits show next visit.
+  var fresh = new URL(request.url).pathname.indexOf('/assets/') === 0
+    ? new Request(request, { cache: 'no-cache' })
+    : request;
   return caches.open(ASSETS).then(function (cache) {
+    // Fall back to any cache so the precached shell is used too.
     return cache.match(request).then(function (hit) {
-      var refresh = fetch(request).then(function (res) {
+      return hit || caches.match(request);
+    }).then(function (hit) {
+      var refresh = fetch(fresh).then(function (res) {
         if (res.ok && res.type === 'basic') {
           cache.put(request, res.clone()).then(function () { trim(ASSETS, MAX_ASSETS); });
         }
