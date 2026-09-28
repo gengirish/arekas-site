@@ -1215,3 +1215,12 @@ body:not(.ax-hero) .reel-strip-label span.hint{color:var(--ink-600)!important;}
    space before they load (no layout shift). Zero specificity: any existing
    rule that sizes an image still wins, so nothing is stretched. */
 :where(img[width][height]){width:auto;height:auto;}
+
+/* 12px floor for the remaining small labels found by a rendered font-size
+   audit. Left as-is on purpose: the nav links (sized so eight links fit in
+   one row), the logo's brand tagline (part of the wordmark) and glyph-only
+   decorations. */
+.enq-card .form-label,.hero-enquiry-form .form-label,.m-lbl,
+.price-badge,.division-badge,.badge-nr,.badge-partial,.badge-none,.badge-full,
+.legal-detail-label,.setup-badge,.reel-badge,.gm-video-badge,.pkg-price-label,
+.scroll-hint span,.ax-rail-lbl,th{font-size:12px!important;}
