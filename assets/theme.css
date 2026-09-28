@@ -1210,3 +1210,8 @@ body:not(.ax-hero) .reel-strip-label span.hint{color:var(--ink-600)!important;}
 .fact-label{font-size:12px!important;color:var(--gold-ink)!important;}   /* was gold-500 on white, 2.9:1 */
 .ab-l{font-size:12px!important;color:rgba(255,255,255,.75)!important;}
 .ao-sub{font-size:12px!important;color:var(--ink-600)!important;}
+
+/* <img> tags carry their intrinsic width/height so the browser can reserve
+   space before they load (no layout shift). Zero specificity: any existing
+   rule that sizes an image still wins, so nothing is stretched. */
+:where(img[width][height]){width:auto;height:auto;}
