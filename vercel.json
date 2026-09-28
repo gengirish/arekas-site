@@ -1,0 +1,133 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about-arekas-arena",
+      "destination": "/about-arekas-arena.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-bamboo-arcadia",
+      "destination": "/about-bamboo-arcadia.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/arekas-arena-gallery",
+      "destination": "/arekas-arena-gallery.html",
+      "permanent": true
+    },
+    {
+      "source": "/bamboo-arcadia",
+      "destination": "/bamboo-arcadia.html",
+      "permanent": true
+    },
+    {
+      "source": "/birthday-party-venue-bangalore",
+      "destination": "/birthday-party-venue-bangalore.html",
+      "permanent": true
+    },
+    {
+      "source": "/cancellation-policy",
+      "destination": "/cancellation-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-event-venue-bangalore",
+      "destination": "/corporate-event-venue-bangalore.html",
+      "permanent": true
+    },
+    {
+      "source": "/engagement-venue-bangalore",
+      "destination": "/engagement-venue-bangalore.html",
+      "permanent": true
+    },
+    {
+      "source": "/event-venue-price-bangalore",
+      "destination": "/event-venue-price-bangalore.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html",
+      "permanent": true
+    },
+    {
+      "source": "/farm-stay-near-bangalore",
+      "destination": "/farm-stay-near-bangalore.html",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-reach-arekas-arena",
+      "destination": "/how-to-reach-arekas-arena.html",
+      "permanent": true
+    },
+    {
+      "source": "/offline",
+      "destination": "/offline.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/private-party-venue-bangalore",
+      "destination": "/private-party-venue-bangalore.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms-and-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/wedding-venue-bangalore",
+      "destination": "/wedding-venue-bangalore.html",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(webp|png|jpg|jpeg|svg|ico|mp4|webm|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

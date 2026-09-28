@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<!-- Hero LCP image: small variant on phones, full size on desktop -->
+<link rel="preload" as="image" href="emb1-800.webp" media="(max-width: 800px)" fetchpriority="high">
+<link rel="preload" as="image" href="emb1.webp" media="(min-width: 801px)" fetchpriority="high">
 <!-- ================================================================
      AREKAS ARENA — SEO <head> BLOCK FOR HOMEPAGE (index.html)
      Paste everything below inside your existing <head> tag,
@@ -169,9 +175,12 @@
 }
 </script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/bootstrap.subset.css">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><style>.slide-photo.sp2{background-image:url('emb2.webp')}.slide-photo.sp3{background-image:url('emb3.webp')}.slide-photo.sp4{background-image:url('emb4.webp')}</style></noscript>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 
 <style>
 /* ══════════════════════════════════════════
@@ -243,12 +252,27 @@ body{font-family:'Jost',sans-serif;background:var(--g-white);color:var(--g-text)
 .hero-carousel .carousel-inner,.hero-carousel .carousel-item{height:100%;}
 .slide-bg{width:100%;height:100vh;position:relative;overflow:hidden;}
 .slide-bg .slide-photo{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;animation:kenBurns 12s ease-in-out infinite alternate;}
+/* Hero photos. Slides 2-4 only get their image once the page has loaded
+   (the .hero-late class is added on window load), so they never compete
+   with the first slide. Phones use the 800px-wide variants. */
+.slide-photo.sp1{background-image:url('emb1.webp');}
+.hero-late .slide-photo.sp2{background-image:url('emb2.webp');}
+.hero-late .slide-photo.sp3{background-image:url('emb3.webp');}
+.hero-late .slide-photo.sp4{background-image:url('emb4.webp');}
+@media (max-width: 800px){
+  .slide-photo.sp1{background-image:url('emb1-800.webp');}
+  .hero-late .slide-photo.sp2{background-image:url('emb2-800.webp');}
+  .hero-late .slide-photo.sp3{background-image:url('emb3-800.webp');}
+  .hero-late .slide-photo.sp4{background-image:url('emb4-800.webp');}
+}
 .slide-bg .slide-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(26,46,26,.55) 0%,rgba(26,46,26,.4) 50%,rgba(26,46,26,.7) 100%);}
 .slide-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;z-index:7;}
 @media(min-width:992px){.slide-inner{padding-right:420px;align-items:flex-start;text-align:left;}}
   .slide-badge{display:none !important;}
 .slide-title{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,7vw,96px);font-weight:300;color:var(--g-white);line-height:1.02;letter-spacing:-.5px;animation:fadeUp .7s ease .2s forwards;text-shadow:0 2px 24px rgba(0,0,0,.3);}
 .slide-title em{font-style:italic;color:var(--g-pale);}
+/* First slide headline (the LCP element) paints immediately, no fade. */
+h1.slide-title{animation:none;opacity:1;transform:none;}
 .slide-sub{display:none !important;}
 .slide-sub-common{display:block;font-size:16px;font-weight:300;color:rgba(255,255,255,.8);line-height:1.7;max-width:560px;margin-top:20px;animation:fadeUp .7s ease .3s forwards;text-shadow:0 1px 12px rgba(0,0,0,.35);}
 .slide-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px;animation:fadeUp .7s ease .4s forwards;}
@@ -529,6 +553,7 @@ body{font-family:'Jost',sans-serif;background:var(--g-white);color:var(--g-text)
   background:url('emb1.webp') center/cover no-repeat;
   filter:blur(26px) saturate(.85);transform:scale(1.12);
 }
+@media (max-width: 800px){.setup-section::before{background-image:url('emb1-800.webp');}}
 .setup-section::after{
   content:'';position:absolute;inset:0;z-index:-1;
   background:linear-gradient(115deg,rgba(6,23,13,.96) 0%,rgba(6,23,13,.9) 46%,rgba(8,29,17,.82) 100%);
@@ -1201,7 +1226,7 @@ footer{background:var(--g-dark-2);padding:68px 5% 28px;}
 }
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18387504806"></script>
+<script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-18387504806';document.head.appendChild(s);});</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1272,7 +1297,7 @@ function gtag_report_conversion(url) {
     <!-- Slide 1: Weddings & Celebrations -->
     <div class="carousel-item active">
       <div class="slide-bg">
-        <div class="slide-photo" style="background-image:url('emb1.webp');"></div>
+        <div class="slide-photo sp1"></div>
         <div class="slide-overlay"></div>
         <div class="slide-inner">
           <span class="slide-badge"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> &nbsp;Arekas Arena · Event Venue · Rajanukunte, Bangalore</span>
@@ -1289,7 +1314,7 @@ function gtag_report_conversion(url) {
     <!-- Slide 2: Corporate & Private Events -->
     <div class="carousel-item">
       <div class="slide-bg">
-        <div class="slide-photo" style="background-image:url('emb2.webp');"></div>
+        <div class="slide-photo sp2"></div>
         <div class="slide-overlay" style="background:linear-gradient(to bottom,rgba(26,46,26,.6) 0%,rgba(26,46,26,.4) 50%,rgba(26,46,26,.75) 100%);"></div>
         <div class="slide-inner">
           <span class="slide-badge"><i class="bi bi-stars" aria-hidden="true"></i> &nbsp;Weddings · Birthdays · Corporate Events · Private Parties</span>
@@ -1305,7 +1330,7 @@ function gtag_report_conversion(url) {
     <!-- Slide 3: Fireside Evening Dinners -->
     <div class="carousel-item">
       <div class="slide-bg">
-        <div class="slide-photo" style="background-image:url('emb3.webp');"></div>
+        <div class="slide-photo sp3"></div>
         <div class="slide-overlay"></div>
         <div class="slide-inner">
           <h2 class="slide-title">Savor <em>Evening</em><br>Mealtime under the<br>Stars</h2>
@@ -1321,7 +1346,7 @@ function gtag_report_conversion(url) {
     <!-- Slide 4: Corporate Retreats -->
     <div class="carousel-item">
       <div class="slide-bg">
-        <div class="slide-photo" style="background-image:url('emb4.webp');"></div>
+        <div class="slide-photo sp4"></div>
         <div class="slide-overlay"></div>
         <div class="slide-inner">
           <h2 class="slide-title">Teamwork in <em>Nature</em><br>For Fresh<br>Perspective</h2>
@@ -1468,7 +1493,7 @@ function gtag_report_conversion(url) {
 
     <div class="setup-stage reveal-right">
       <div class="setup-player">
-        <video id="setupFilm" class="setup-video" poster="emb1.webp" preload="none"
+        <video id="setupFilm" class="setup-video" preload="none"
                muted loop playsinline disablepictureinpicture
                aria-label="Setup film of Arekas Arena">
           <source data-src="SetupVideo.webm" type="video/webm">
@@ -1661,49 +1686,49 @@ function gtag_report_conversion(url) {
     <div class="reel-strip">
 
       <div class="reel-card" onclick="openLightbox(0)">
-        <video src="av1.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="av1.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">01</div>
       </div>
 
       <div class="reel-card" onclick="openLightbox(1)">
-        <video src="av2.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="av2.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">02</div>
       </div>
 
       <div class="reel-card" onclick="openLightbox(2)">
-        <video src="rv/Reel%201.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="rv/Reel%201.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">03</div>
       </div>
 
       <div class="reel-card" onclick="openLightbox(3)">
-        <video src="rv/Reel%202.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="rv/Reel%202.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">04</div>
       </div>
 
       <div class="reel-card" onclick="openLightbox(4)">
-        <video src="rv/Reel%203.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="rv/Reel%203.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">05</div>
       </div>
 
       <div class="reel-card" onclick="openLightbox(5)">
-        <video src="rv/Reel%204.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="rv/Reel%204.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">06</div>
       </div>
 
       <div class="reel-card" onclick="openLightbox(6)">
-        <video src="rv/Reel%205.mp4" muted loop playsinline preload="metadata"></video>
+        <video data-src="rv/Reel%205.mp4" class="lazy-reel" muted loop playsinline preload="none"></video>
         <div class="reel-badge"><span class="rb-dot"></span>Reel</div>
         <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
         <div class="reel-num">07</div>
@@ -2288,9 +2313,9 @@ function gtag_report_conversion(url) {
         <div><div class="ch-lbl">Call Us</div><div class="ch-val">+91 89511 26633</div></div>
         <i class="bi bi-arrow-right" aria-hidden="true" style="margin-left:auto;color:rgba(255,255,255,.18)"></i>
       </a>
-      <a class="ch-card" href="/cdn-cgi/l/email-protection#e58497808e8496cb8497808b84a58288848c89cb868a88">
+      <a class="ch-card" href="mailto:arekas.arena@gmail.com">
         <div class="ch-ico" style="background:#EA4335;color:#fff;"><i class="bi bi-envelope" aria-hidden="true"></i></div>
-        <div><div class="ch-lbl">Email</div><div class="ch-val"><span class="__cf_email__" data-cfemail="e2839087898391cc8390878c83a2858f838b8ecc818d8f">arekas.arena@gmail.com / bambooblissfarmstay@gmail.com</span></div></div>
+        <div><div class="ch-lbl">Email</div><div class="ch-val">arekas.arena@gmail.com / bambooblissfarmstay@gmail.com</div></div>
         <i class="bi bi-arrow-right" aria-hidden="true" style="margin-left:auto;color:rgba(255,255,255,.18)"></i>
       </a>
       <a class="ch-card" href="https://www.facebook.com/arekas.arena" target="_blank">
@@ -2451,7 +2476,7 @@ function gtag_report_conversion(url) {
   <i class="bi bi-telephone-fill" aria-hidden="true"></i>
 </a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" defer></script>
 <script>
 /* Conditional field logic for both forms */
 function updateHeroFormFields() {
@@ -2749,6 +2774,55 @@ function scrollExpCards(direction){
   } else if(autoOK){ play(); }
 })();
 
+/* Hero slides 2-4: attach their photos after load and warm the cache, so the
+   first slide's image has the network to itself. */
+(function(){
+  const hero=document.getElementById('heroCarousel');
+  if(!hero) return;
+  const small=window.matchMedia('(max-width: 800px)').matches;
+  function late(){
+    hero.classList.add('hero-late');
+    [2,3,4].forEach(n=>{ const i=new Image(); i.decoding='async'; i.src='emb'+n+(small?'-800':'')+'.webp'; });
+  }
+  if(document.readyState==='complete') late(); else window.addEventListener('load',late);
+})();
+
+/* Setup film poster sized to the viewport. */
+(function(){
+  const v=document.getElementById('setupFilm');
+  if(v && !v.getAttribute('poster')) v.poster=window.matchMedia('(max-width: 800px)').matches?'emb1-800.webp':'emb1.webp';
+})();
+
+/* Reel strip: the videos carry data-src and preload="none" so nothing is
+   fetched on load. The source is attached ~200px before a reel scrolls into
+   view; assets/theme.js keeps playing/pausing them by visibility. */
+(function(){
+  const reels=document.querySelectorAll('video.lazy-reel[data-src]');
+  if(!reels.length) return;
+  function attach(v){
+    if(!v.dataset.src) return;
+    v.src=v.dataset.src;
+    v.removeAttribute('data-src');
+    v.preload='metadata';
+    v.load();
+    // load() cancels any play() theme.js issued before the source existed, so
+    // restart it here if the reel is already on screen by theme.js's own
+    // measure (>=20% visible inside both the viewport and the reel strip).
+    const r=v.getBoundingClientRect(), strip=v.closest('.reel-strip');
+    const c=strip?strip.getBoundingClientRect():{left:0,top:0,right:innerWidth,bottom:innerHeight};
+    const w=Math.min(r.right,c.right,innerWidth)-Math.max(r.left,c.left,0);
+    const h=Math.min(r.bottom,c.bottom,innerHeight)-Math.max(r.top,c.top,0);
+    if(w>0 && h>0 && w*h>=0.2*r.width*r.height){
+      const p=v.play(); if(p && p.catch) p.catch(()=>{});
+    }
+  }
+  if(!('IntersectionObserver' in window)){ reels.forEach(attach); return; }
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ io.unobserve(e.target); attach(e.target); } });
+  },{rootMargin:'200px'});
+  reels.forEach(v=>io.observe(v));
+})();
+
 /* Reveal on scroll */
 if('IntersectionObserver' in window){
   const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
@@ -2784,4 +2858,4 @@ if(sw){let d=false,sx,sl;
 }
 </script>
 </body>
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl503515'},{'dcenter':'p3'},{'cp_id':'9958966'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script></html>
+</html>
