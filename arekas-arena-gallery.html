@@ -383,7 +383,7 @@
 <!-- ══ BACK BAR ══ -->
 <div style="background:var(--forest);padding:16px 6vw;font-family:'Sora',sans-serif;">
   <a href="index.html" style="color:var(--sage-dim);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;display:inline-flex;align-items:center;gap:8px;">
-    <i class="bi bi-arrow-left"></i> Back to Arekas Arena
+    <i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Arekas Arena
   </a>
 </div>
 
@@ -418,7 +418,7 @@
       <h4>Seen enough to fall in love with it?</h4>
       <p>Come walk the grounds yourself — book a free site visit this week.</p>
     </div>
-    <a href="#contact" class="gallery-cta-btn">Book a Site Visit <i class="bi bi-arrow-up-right"></i></a>
+    <a href="#contact" class="gallery-cta-btn">Book a Site Visit <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
   </div>
 
 </section>
@@ -426,9 +426,9 @@
 <!-- ══ LIGHTBOX ══ -->
 <div class="lb-overlay" id="lbOverlay" onclick="if(event.target===this) closeLightbox()">
   <div class="lb-stage" id="lbStage">
-    <div class="lb-close" onclick="closeLightbox()"><i class="bi bi-x-lg"></i></div>
-    <div class="lb-nav prev" onclick="navLightbox(-1)"><i class="bi bi-chevron-left"></i></div>
-    <div class="lb-nav next" onclick="navLightbox(1)"><i class="bi bi-chevron-right"></i></div>
+    <div class="lb-close" onclick="closeLightbox()"><i class="bi bi-x-lg" aria-hidden="true"></i></div>
+    <div class="lb-nav prev" onclick="navLightbox(-1)"><i class="bi bi-chevron-left" aria-hidden="true"></i></div>
+    <div class="lb-nav next" onclick="navLightbox(1)"><i class="bi bi-chevron-right" aria-hidden="true"></i></div>
     <div id="lbMedia"></div>
     <div class="lb-counter" id="lbCounter"></div>
   </div>
@@ -470,7 +470,7 @@ REELS.forEach((src, i) => {
   card.innerHTML = `
     <video src="${src}" muted loop playsinline preload="metadata"></video>
     <div class="reel-badge"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block;"></span>Reel</div>
-    <div class="reel-play"><i class="bi bi-play-fill"></i></div>
+    <div class="reel-play"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
     <div class="reel-num">0${i+1}</div>
   `;
   reelStrip.appendChild(card);
@@ -486,7 +486,7 @@ PHOTOS.forEach((src, i) => {
   item.onclick = () => openLightbox(idx);
   item.innerHTML = `
     <img src="${src}" alt="Arekas Arena — venue view ${i+1}" loading="lazy" decoding="async">
-    <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen"></i></div></div>
+    <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen" aria-hidden="true"></i></div></div>
   `;
   mosaic.appendChild(item);
 });

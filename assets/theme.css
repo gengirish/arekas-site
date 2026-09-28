@@ -227,7 +227,7 @@ h1,h2,h3,.s-h2,.section-h2,.gallery-title,.vh-title,.pkg-title,
 
 /* nav CTA — terracotta */
 .btn-nav-cta,.btn-pcc{
-  background:linear-gradient(160deg,var(--terra-500),var(--terra-700))!important;
+  background:linear-gradient(160deg,var(--terra-600),var(--terra-700))!important;
   color:var(--cream-100)!important;
   border:1px solid rgba(234,213,164,.35)!important;
   padding:13px 26px!important;
@@ -307,7 +307,7 @@ body.ax-inner .nav-links a:hover{color:var(--gold-300)!important;}
   }
   .nav-mobile-open .nav-links a{color:rgba(245,234,203,.8)!important;}
   .nav-mobile-open .btn-nav-cta{
-    background:linear-gradient(160deg,var(--terra-500),var(--terra-700))!important;
+    background:linear-gradient(160deg,var(--terra-600),var(--terra-700))!important;
     color:var(--cream-100)!important;
   }
   .nav-logo-img{height:50px!important;}
@@ -807,7 +807,7 @@ body .site-nav.scrolled .btn-nav-cta,
 body .site-nav.scrolled .btn-nav-cta[href*="wa.me"],
 body .nav-mobile-open .btn-nav-cta,
 body .btn-pcc{
-  background:linear-gradient(160deg,var(--terra-500),var(--terra-700))!important;
+  background:linear-gradient(160deg,var(--terra-600),var(--terra-700))!important;
   color:var(--cream-100)!important;
   border:1px solid rgba(234,213,164,.35)!important;
   border-radius:3px!important;
@@ -1201,3 +1201,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 /* --gold-ink is for parchment only; these sit on forest grounds */
 .legal-card-icon{color:var(--gold-400)!important;}
 .pkg-chip,.suite-hero-pill{color:var(--gold-300)!important;}
+
+/* Contrast fixes found by an in-browser audit of every page */
+.pkg-incl-label{color:var(--gold-400)!important;}                        /* sits on the forest pricing band */
+.pkg-sub,.map-sub,body.ax-hero .gallery-sub{color:rgba(245,234,203,.68)!important;}  /* 3.7 → 6.3:1 on forest */
+.reel-strip-label span.hint{font-size:12px!important;color:rgba(245,234,203,.7)!important;}
+body:not(.ax-hero) .reel-strip-label span.hint{color:var(--ink-600)!important;}
+.fact-label{font-size:12px!important;color:var(--gold-ink)!important;}   /* was gold-500 on white, 2.9:1 */
+.ab-l{font-size:12px!important;color:rgba(255,255,255,.75)!important;}
+.ao-sub{font-size:12px!important;color:var(--ink-600)!important;}
