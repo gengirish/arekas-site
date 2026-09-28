@@ -451,15 +451,26 @@ const REELS = [
 ].map(f => BASE_VIDEO + encodeURIComponent(f));
 
 const PHOTOS = [
-  'IMG_3467.webp','IMG_3476.webp','IMG_3485.webp','IMG_3488.webp','IMG_3489.webp',
-  'IMG_3496.webp','IMG_3498.webp','IMG_3501.webp','IMG_3507.webp','IMG_3511.webp',
-  'IMG_3517.webp','IMG_3518.webp','IMG_3522.webp','IMG_3536.webp'
-].map(f => BASE_PHOTO + f);
+  ['rock-waterfall.webp', "Rock waterfall on the lawn, with ducks at its edge"],
+  ['lawn-bamboo-screen.webp', "Paved path across the lawn to a bamboo screen"],
+  ['garden-pond-seating.webp', "Garden pond with a stone path and seating"],
+  ['welcome-sign.webp', "Hanging wooden Arekas sign beside a garden path"],
+  ['bamboo-pergola-walkway.webp', "Bamboo pergola walkway through the arecanut grove"],
+  ['arecanut-grove.webp', "Rows of arecanut palms over a green lawn"],
+  ['swimming-pool.webp', "Swimming pool ringed by palms and sun loungers"],
+  ['cottage-walkway.webp', "Stone walkway past bamboo cottages on stilts"],
+  ['cottage-bathroom.webp', "Cottage bathroom with shower and vanity"],
+  ['cottage-bedroom.webp', "Double bed in a woven-bamboo cottage room"],
+  ['palm-lined-walkway.webp', "Palm-lined stone walkway between the cottages"],
+  ['thatched-gazebo.webp', "Thatched gazebo with a round centre seating area"],
+  ['bamboo-cottage.webp', "Bamboo cottage on stilts among arecanut palms"],
+  ['cottage-room-tv.webp', "Cottage room with woven-bamboo walls, TV and kettle"]
+].map(([f, alt]) => ({ src: BASE_PHOTO + f, alt }));
 
 /* combined list for the lightbox: reels first, then photos */
 const MEDIA = [
   ...REELS.map(src => ({ type:'video', src })),
-  ...PHOTOS.map(src => ({ type:'photo', src }))
+  ...PHOTOS.map(p => ({ type:'photo', src: p.src }))
 ];
 
 /* ═══════════════ RENDER: REEL STRIP ═══════════════ */
@@ -479,14 +490,14 @@ REELS.forEach((src, i) => {
 
 /* ═══════════════ RENDER: MOSAIC ═══════════════ */
 const mosaic = document.getElementById('mosaic');
-PHOTOS.forEach((src, i) => {
+PHOTOS.forEach(({ src, alt }, i) => {
   const idx = REELS.length + i; // offset into MEDIA array
   const item = document.createElement('div');
   item.className = 'gm-item';
   item.dataset.type = 'photo';
   item.onclick = () => openLightbox(idx);
   item.innerHTML = `
-    <img src="${src}" alt="Arekas Arena — venue view ${i+1}" loading="lazy" decoding="async">
+    <img src="${src}" alt="${alt}" loading="lazy" decoding="async">
     <div class="gm-overlay"><div class="gm-expand-btn"><i class="bi bi-fullscreen" aria-hidden="true"></i></div></div>
   `;
   mosaic.appendChild(item);

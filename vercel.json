@@ -250,6 +250,106 @@
       "source": "/SetupVideo.webm",
       "destination": "/videos/setup-video.webm",
       "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3467.webp",
+      "destination": "/aap/rock-waterfall.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/reel/IMG_3467-640.webp",
+      "destination": "/aap/reel/rock-waterfall-640.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3476.webp",
+      "destination": "/aap/lawn-bamboo-screen.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3485.webp",
+      "destination": "/aap/garden-pond-seating.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/reel/IMG_3485-640.webp",
+      "destination": "/aap/reel/garden-pond-seating-640.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3488.webp",
+      "destination": "/aap/welcome-sign.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3489.webp",
+      "destination": "/aap/bamboo-pergola-walkway.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/reel/IMG_3489-640.webp",
+      "destination": "/aap/reel/bamboo-pergola-walkway-640.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3496.webp",
+      "destination": "/aap/arecanut-grove.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3498.webp",
+      "destination": "/aap/swimming-pool.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/reel/IMG_3498-640.webp",
+      "destination": "/aap/reel/swimming-pool-640.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3501.webp",
+      "destination": "/aap/cottage-walkway.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3507.webp",
+      "destination": "/aap/cottage-bathroom.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3511.webp",
+      "destination": "/aap/cottage-bedroom.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3517.webp",
+      "destination": "/aap/palm-lined-walkway.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3518.webp",
+      "destination": "/aap/thatched-gazebo.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/reel/IMG_3518-640.webp",
+      "destination": "/aap/reel/thatched-gazebo-640.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3522.webp",
+      "destination": "/aap/bamboo-cottage.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/reel/IMG_3522-640.webp",
+      "destination": "/aap/reel/bamboo-cottage-640.webp",
+      "permanent": true
+    },
+    {
+      "source": "/aap/IMG_3536.webp",
+      "destination": "/aap/cottage-room-tv.webp",
+      "permanent": true
     }
   ],
   "headers": [
