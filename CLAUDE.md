@@ -17,6 +17,7 @@ python3 -m http.server 8000   # then open http://localhost:8000
 - `*.html` (repo root): one file per page, 18 in all. `index.html` (~160 KB) and `bamboo-arcadia.html` hold page-specific JavaScript and modals. The others follow a shared template.
 - `assets/theme.css` and `assets/theme.js`: the "Forest & Gold" theme. It is a progressive layer that every page loads after its own inline `<style>`. It only adds presentation (section rail, heading ornaments, hero kicker, brand tagline, current-nav highlighting) and must not rewrite copy or remove markup.
 - Media: `.webp` images at the root and in `venue/` (venue photos) and `aap/` (Bamboo Arcadia). Videos are `av*.mp4`, the reels in `rv/`, and `SetupVideo.webm` (~94 MB).
+- PWA: `site.webmanifest` (installable, standalone), `sw.js` (service worker at the root so its scope is the whole site) and `offline.html` (fallback page, `noindex`, deliberately left out of the sitemap). `assets/theme.js` registers the worker, so no page needs its own snippet. Pages are network-first and images/CSS/JS are cached as they're viewed. Videos are never cached. Bump `VERSION` in `sw.js` whenever you change `theme.css`, `theme.js` or the precache list, so returning visitors get the new files.
 - SEO and AI discovery files: `sitemap.xml`, `robots.txt` (explicitly allows AI crawlers), `llms.txt` (a short index) and `llms-full.txt` (full facts, policies and FAQs).
 
 ## Page anatomy and conventions

@@ -226,4 +226,12 @@
     buildRail();
     videoVisibility();
   });
+
+  /* ── PWA · Register the service worker (installable + offline) ───────── */
+  // Registered here because theme.js is the one script every page loads.
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').catch(function () {});
+    });
+  }
 })();
